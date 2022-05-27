@@ -26,6 +26,11 @@
     <title>Datos del usuario</title>
  
 </head>
+<script>
+     function mover() {
+        window.location.href = '../controlador/accion/act_EliminarUsuario.php';
+    }
+</script>
 
 <body >
     <div class="navbar navbar-expand-sm bg-dark fixed-top">
@@ -75,7 +80,7 @@
                     <p><?php  echo $_SESSION['CONTRASEÑA_USUARIO']?></p>
                 </div>
             </div>
-            <button type="submit" class="btn btn-dark" href="/../controlador/accion/act_logout.php" id="boton">Eliminar Usuario</button>
+            <button type="submit" class="btn btn-dangerous" onclick="mover()" id="boton">Eliminar Usuario</button>
             
         </div>
     </div>

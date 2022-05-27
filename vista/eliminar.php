@@ -1,17 +1,8 @@
 <?php
-$conexion = mysqli_connect("localhost", "root", "","datospg1");
-mysqli_set_charset($conexion,"utf8")
-?>
-<?php
-   
-    $id = $_GET['id'];
-    $eliminar = "DELETE FROM usuario WHERE idusuario = '$id'";
-    $resultadoEliminar=mysqli_query($conexion,$eliminar);
-    if($resultadoEliminar){
-      header("Location: adminmodificar.php");
-    }else{
-      echo"<script>alert('No se pudo eliminar'); window.history.go(-1);</script>";
-    }
+ session_start();
+ if(!isset(($_SESSION['EMAIL_USUARIO']))){
+   header("Location: iniciar.php");
+}
 ?>
  
 
