@@ -13,14 +13,21 @@ $ruta = "../../image";
 $ruta_p = "../image";
 $mos = $ruta . "/" . $archivo;
 $mos_f = $ruta_p . "/" . $archivo;
-move_uploaded_file($nom_img,$mos);
+move_uploaded_file($nom_img, $mos);
 
 
 
-if ($nombre != "" and $correo != "" and $password != "" and $archivo!="") {
-  $usuario = new Usuario($idUsuario, $nombre, $correo, $password,$mos_f);
-  editarUsuario($usuario);
-  header("Location: ../../vista/iniciar.php");
+if ($nombre != "" and $correo != "" and $password != "") {
+
+  if ($archivo != "") {
+    $usuario = new Usuario($idUsuario, $nombre, $correo, $password, $mos_f);
+    editarUsuario($usuario);
+    header("Location: ../../vista/iniciar.php");
+  } else {
+    $usuario = new Usuario($idUsuario, $nombre, $correo, $password, NULL);
+    editarUsuario($usuario);
+    header("Location: ../../vista/iniciar.php");
+  }
 } else {
   header("Location:../../vista/falla.php");
 }
